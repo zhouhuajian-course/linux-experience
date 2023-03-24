@@ -1,6 +1,6 @@
 # Linux Shell Script Examples
 
-> shell two data types `string` and `one-dimensional string array`  
+> shell four data types `integer`, `double `, `string` and `one-dimensional string array`  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
 ## if 命令 和 条件表达式
