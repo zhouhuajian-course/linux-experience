@@ -51,6 +51,32 @@ $ echo $?
 $ [[ b.txt -nt a.txt ]]
 $ echo $?
 1
+
+# 字符串相等、字符串不相等
+# string1 == string2
+# string1 = string2
+# True if the strings are equal. When used with the [[ command, this performs pattern matching as described above (see Conditional Constructs).
+# ‘=’ should be used with the test command for POSIX conformance.
+# string1 != string2
+# True if the strings are not equal.
+$ [[ "abc" == "abc" ]]
+$ echo $?
+0
+$ [[ "abc" == "123" ]]
+$ echo $?
+1
+$ test "abc" == "abc"
+$ echo $?
+0
+$ test "abc" == "123"
+$ echo $?
+1
+$ test "abc" = "abc"
+$ echo $?
+0
+$ test "abc" = "123"
+$ echo $?
+1
 ```
 
 ## 字符串转数组、数组转字符串
