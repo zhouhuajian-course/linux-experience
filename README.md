@@ -3,6 +3,31 @@
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## 关联数组
+
+```shell
+$ declare -A user # 声明变量user是关联数组
+$ user=([name]=zhouhuajian [age]=18) 
+$ echo ${user[name]}
+zhouhuajian
+$ echo ${user[age]}
+18
+$ user[money]=10.03
+$ echo ${user[money]}
+10.03
+$ echo ${user[*]}   # 所有值转字符串
+10.03 zhouhuajian 18
+$ echo ${user[@]}   # 所有值转字符串
+10.03 zhouhuajian 18
+$ echo ${!user[@]}  # 所有键转字符串
+money name age
+$ echo ${!user[*]}  # 所有键转字符串
+money name age
+# The -p option will display the attributes and values of each name.
+$ declare -p user
+declare -A user='([money]="10.03" [name]="zhouhuajian" [age]="18" )'
+```
+
 ## if 命令 和 条件表达式
 
 ```shell
