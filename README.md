@@ -31,7 +31,7 @@ $ if [[ $name =~ ^name ]]; then echo "名字格式正确"; else echo "名字格�
 ```
 
 ```shell
-# -e file
+# -e file 文件是否存在
 # True if file exists.
 $ [[ -e /etc/profile ]]
 $ echo $?
@@ -40,13 +40,18 @@ $ [[ -e /etc/profile111 ]]
 $ echo $?
 1
 
-# file1 -nt file2
+# file1 -nt file2 比较一个文件是否修改时间比另一个文件新
 # True if file1 is newer (according to modification date) than file2, or if file1 exists and file2 does not.
-
+$ touch a.txt
+$ rsync -a a.txt b.txt # 拷贝 保留了文件时间
+$ touch c.txt
+$ [[ c.txt -nt a.txt ]]
+$ echo $?
+0
+$ [[ b.txt -nt a.txt ]]
+$ echo $?
+1
 ```
-
-
-
 
 ## 字符串转数组、数组转字符串
 
