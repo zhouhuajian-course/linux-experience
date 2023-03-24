@@ -3,6 +3,51 @@
 > shell two data types `string` and `one-dimensional string array`  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## if 命令 和 条件表达式
+
+```shell
+if test-commands; then
+  consequent-commands;
+[elif more-test-commands; then
+  more-consequents;]
+[else alternate-consequents;]
+fi
+
+The test-commands list is executed, and if its return status is zero, the consequent-commands list is executed. If test-commands returns a non-zero status, each elif list is executed in turn, and if its exit status is zero, the corresponding more-consequents is executed and the command completes. If ‘else alternate-consequents’ is present, and the final command in the final if or elif clause has a non-zero exit status, then alternate-consequents is executed. The return status is the exit status of the last command executed, or zero if no condition tested true.
+
+[[…]]
+[[ expression ]]
+Return a status of 0 or 1 depending on the evaluation of the conditional expression expression.
+```
+
+```shell
+# =~ 正则表达式
+$ name="name1"
+$ if [[ $name =~ ^name ]]; then echo "名字格式正确"; else echo "名字格式错误"; fi
+名字格式正确
+$ name="testname"
+$ if [[ $name =~ ^name ]]; then echo "名字格式正确"; else echo "名字格式错误"; fi
+名字格式错误
+```
+
+```shell
+# -e file
+# True if file exists.
+$ [[ -e /etc/profile ]]
+$ echo $?
+0
+$ [[ -e /etc/profile111 ]]
+$ echo $?
+1
+
+# file1 -nt file2
+# True if file1 is newer (according to modification date) than file2, or if file1 exists and file2 does not.
+
+```
+
+
+
+
 ## 字符串转数组、数组转字符串
 
 ```shell
