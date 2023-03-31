@@ -3,6 +3,62 @@
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## 解析任务配置 运行任务
+
+```shell
+
+# 代码层级较多，使用2个空格进行代码缩进
+
+function changeDatabaseType() {
+}
+function changeMysqlUserPasswordAndJdbcurl() {
+}
+function start() {
+}
+function stop() {
+}
+
+# 初始化
+# 安装yq命令
+yq > /dev/null 2>&1
+if [[ $? == 127 ]]; then
+  echo "[ERROR] yq命令不存在，5秒后自动进行yq命令自动安装，安装过程可能较慢，请耐心等待"
+  sleep 5s
+  wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq && chmod +x /usr/bin/yq
+fi
+# 项目目录、所有模块
+declare projectDirPath=`pwd`
+declare allModules="`ls . | xargs`"
+declare version=
+# 解析配置，执行任务
+declare isFirstLine='true'
+declare -i index=0
+declare -a currentTask
+awk '!/^$/' tasks | awk '!/^#/' | while read line
+do
+  if [[ $isFirstLine == 'true' ]]; then
+    version=$line
+    isFirstLine='false'
+  else
+    currentTask[$index]=$line
+    # 处理一下模块
+    if [[ $index == 1 ]] && [[ ${currentTask[1]} == 'all' ]]; then
+      currentTask[1]=$allModules
+    fi
+    # 执行当前任务，并把索引初始化为0
+    if [[ $index == 2 ]]; then
+      echo "========== ${currentTask[0]} =========="
+      # declare -p currentTask
+      ${currentTask[0]}
+      index=0
+    # 索引+1
+    else
+      ((index++))
+    fi
+  fi    
+done
+```
+
 ## 关联数组
 
 ```shell
