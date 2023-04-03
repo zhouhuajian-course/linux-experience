@@ -3,6 +3,16 @@
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## 创建用户组、创建用户
+
+```shell
+$ groupadd groupname
+$ useradd -g groupname -m -d /home/username -s /bin/bash username
+$ passwd username
+$ id username
+uid=1000(username) gid=1000(groupname) groups=1000(groupname)
+```
+
 ## 解析任务配置 运行任务
 
 ```shell
