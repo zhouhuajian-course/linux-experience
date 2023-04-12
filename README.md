@@ -3,6 +3,19 @@
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## 根据端口/命令名找进程和工作目录
+
+```shell
+$ netstat -anp | grep 22
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      972/sshd            
+tcp6       0      0 :::22                   :::*                    LISTEN      972/sshd 
+$ netstat -anp | grep sshd
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      972/sshd            
+tcp6       0      0 :::22                   :::*                    LISTEN      972/sshd     
+$ pwdx 972
+972: /
+```
+
 ## 创建用户组、创建用户
 
 ```shell
