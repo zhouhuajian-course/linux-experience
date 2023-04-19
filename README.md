@@ -5,9 +5,10 @@
 
 ## shell 显示当前目录
 
+```shell
 echo "export PS1='[\u@\h $PWD]\$ '" >> /etc/profile
-
 source /etc/profile
+```
 
 ## zip 压缩 解压缩
 
