@@ -3,6 +3,12 @@
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## shell 显示当前目录
+
+echo "export PS1='[\u@\h $PWD]\$ '" >> /etc/profile
+
+source /etc/profile
+
 ## zip 压缩 解压缩
 
 zip -r 文件名.zip 文件 目录 文件 目录 ...
