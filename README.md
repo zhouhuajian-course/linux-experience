@@ -3,6 +3,16 @@
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## 同时作多个文件或文件夹，创建、删除、移动等
+
+```shell
+$ touch /tmp/{a,b,c}
+$ mkdir /tmp/{test1,test2}
+$ mv /tmp/{a,b} /tmp/test1
+$ ls /tmp/test1
+a  b
+```
+
 ## shell 显示当前目录
 
 ```shell
