@@ -1,7 +1,18 @@
-# Linux Shell Script Examples
+# Linux Shell Manual
 
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
+
+## CURL 发送 POST 请求
+
+shell
+```
+Usage: curl [options...] <url>
+
+curl -X POST -d "{\"name\":\"xiaoming\",\"age\":18}" 192.168.1.206:8080/user/add
+或者
+curl -X POST -d {"name":"xiaoming","age":18} 192.168.1.206:8080/user/add
+```
 
 ## 同时作多个文件或文件夹，创建、删除、移动等
 
