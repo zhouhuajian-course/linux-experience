@@ -3,6 +3,17 @@
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## 命令写多行
+
+```shell
+cmake \
+-DCMAKE_INSTALL_PREFIX=${mysqlSourcePath} \
+-DDOWNLOAD_BOOST=0 \
+-DWITH_BOOST=${mysqlSourcePath}/boost/boost_1_77_0 \
+-DWITH_DEBUG=1 \
+${mysqlSourcePath}
+```
+
 ## 查看 二进制文件 可打印字符
 
 strings - print the strings of printable characters in files.
@@ -17,21 +28,7 @@ GLIBC_2.3
 GLIBC_2.3.2
 GLIBC_2.3.3
 GLIBC_2.3.4
-GLIBC_2.4
-GLIBC_2.5
-GLIBC_2.6
-GLIBC_2.7
-GLIBC_2.8
-GLIBC_2.9
-GLIBC_2.10
-GLIBC_2.11
-GLIBC_2.12
-GLIBC_2.13
-GLIBC_2.14
-GLIBC_2.15
-GLIBC_2.16
-GLIBC_2.17
-GLIBC_PRIVATE
+...
 ```
 
 更多例子
@@ -43,10 +40,7 @@ CXXABI_1.3.1
 CXXABI_1.3.2
 CXXABI_1.3.3
 CXXABI_1.3.4
-CXXABI_1.3.5
-CXXABI_1.3.6
-CXXABI_1.3.7
-CXXABI_TM_1
+...
 ```
 
 ## CURL 发送 POST 请求
