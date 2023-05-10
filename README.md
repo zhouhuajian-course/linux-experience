@@ -3,6 +3,37 @@
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## 查看 二进制文件 可打印字符
+
+strings - print the strings of printable characters in files.
+
+例如开发libc.so.6的开发人员，为了让开发者知道，这个libc兼容那些版本的标准库，就在库中定义了一些字符串常量，使用如下命令可以查看向下兼容的版本
+
+```shell
+$ strings /lib64/libc.so.6 | grep GLIBC
+GLIBC_2.2.5
+GLIBC_2.2.6
+GLIBC_2.3
+GLIBC_2.3.2
+GLIBC_2.3.3
+GLIBC_2.3.4
+GLIBC_2.4
+GLIBC_2.5
+GLIBC_2.6
+GLIBC_2.7
+GLIBC_2.8
+GLIBC_2.9
+GLIBC_2.10
+GLIBC_2.11
+GLIBC_2.12
+GLIBC_2.13
+GLIBC_2.14
+GLIBC_2.15
+GLIBC_2.16
+GLIBC_2.17
+GLIBC_PRIVATE
+```
+
 ## CURL 发送 POST 请求
 
 shell
