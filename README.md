@@ -34,6 +34,21 @@ GLIBC_2.17
 GLIBC_PRIVATE
 ```
 
+更多例子
+
+```shell
+$ strings /lib64/libstdc++.so.6 | grep CXXABI
+CXXABI_1.3
+CXXABI_1.3.1
+CXXABI_1.3.2
+CXXABI_1.3.3
+CXXABI_1.3.4
+CXXABI_1.3.5
+CXXABI_1.3.6
+CXXABI_1.3.7
+CXXABI_TM_1
+```
+
 ## CURL 发送 POST 请求
 
 shell
