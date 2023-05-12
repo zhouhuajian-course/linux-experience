@@ -49,7 +49,9 @@ shell
 ```
 Usage: curl [options...] <url>
 
-curl -X POST -d "{\"name\":\"xiaoming\",\"age\":18}" 192.168.1.206:8080/user/add
+curl -X POST -H 'Content-Type: application/json' -H 'User-Agent: Mozilla/5.0' -d "{\"name\":\"xiaoming\",\"age\":18}" 192.168.1.206:8080/user/add
+或者
+curl -X POST -d '{"name":"xiaoming","age":18}' 192.168.1.206:8080/user/add
 或者
 curl -X POST -d {"name":"xiaoming","age":18} 192.168.1.206:8080/user/add
 ```
