@@ -3,6 +3,31 @@
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## 获取命令结果
+
+1. tmp=$(cmd)，支持嵌套
+2. tmp=`cmd`，不支持嵌套
+
+```shell
+[root@centos /root]# mkdir /test
+[root@centos /root]# cd /test/
+[root@centos /test]# touch {a,b}
+[root@centos /test]# tmp=$(pwd)
+[root@centos /test]# echo $tmp
+/test
+[root@centos /test]# tmp=`pwd`
+[root@centos /test]# echo $tmp
+/test
+[root@centos /test]# ls
+a  b
+[root@centos /test]# tmp=$(ls $(pwd))
+[root@centos /test]# echo $tmp
+a b
+[root@centos /test]# tmp=`ls `pwd``
+[root@centos /test]# echo $tmp
+a bpwd
+```
+
 ## 服务启动关闭
 
 ```shell
