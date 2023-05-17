@@ -3,6 +3,47 @@
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## 服务启动关闭
+
+```shell
+#!/bin/bash
+
+############################
+# 服务 启动/停止 脚本
+#
+# @author  zhouhuajian
+# @version 1.0
+############################
+
+projectPath='/root/test'
+
+case $1 in
+  'start') 
+    tmp=$(ps -ef | grep app.py | wc -l)
+    if [[ $tmp -eq 1 ]]; then
+      nohup python3 ${projectPath}/app.py > ${projectPath}/flask.log 2>&1 &
+    fi
+    tmp=$(ps -ef | grep stat-server | wc -l)
+    if [[ $tmp -eq 1 ]]; then
+      nohup ${projectPath}/stat-server > ${projectPath}/stat-server.log 2>&1 &
+    fi
+    ;;
+  'stop') 
+    tmp=$(ps -ef | grep app.py | wc -l)
+    if [[ $tmp -gt 1 ]]; then
+      ps -ef | grep -m 1 app.py | awk '{print $2}' | xargs kill -9  
+    fi
+    tmp=$(ps -ef | grep stat-server | wc -l)
+    if [[ $tmp -gt 1 ]]; then
+      ps -ef | grep -m 1 stat-server | awk '{print $2}' | xargs kill -9  
+    fi
+    ;;
+  *) 
+    echo "Usage: sh server-ctl.sh {start | stop}"
+    ;;
+esac
+```
+
 ## 命令写多行
 
 ```shell
