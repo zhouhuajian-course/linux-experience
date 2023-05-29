@@ -3,6 +3,21 @@
 > shell four data types `integer`, `double `, `string` and `one-dimensional string array`  (may be not correct)  
 > Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array
 
+## 直接设置密码
+
+```shell
+$ echo "123456" | passwd --stdin username
+```
+
+## 不能登录的用户
+
+```shell
+$ useradd -g groupname -s /sbin/nologin username
+$ useradd -g groupname -s /bin/false username
+```
+
+> 两种方式有区别，查询网络文章
+
 ## 获取命令结果
 
 1. tmp=$(cmd)，支持嵌套
